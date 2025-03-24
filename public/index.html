@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrollSnap Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Sticky Navbar -->
+  <header class="sticky">
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/7518/7518401.png" alt="ScrollSnap Pro Logo">
+      <h2>ScrollSnap Pro</h2>
+    </div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#support">Support</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <h2>Capture Full-Page Screenshots With Just a Single Click</h2>
+      <p>Easily capture scrolling screenshots of any website. Perfect for developers, designers, and marketers.</p>
+      <div class="input-section">
+        <textarea id="links" placeholder="Paste website links (one per line)"></textarea>
+        
+        <div class="options">
+          <!-- Modern Dropdown for Format -->
+          <div class="dropdown">
+            <label for="format">Select Format:</label>
+            <div class="custom-select">
+              <select id="format">
+                <option value="png">PNG</option>
+                <option value="jpeg">JPG</option>
+                <option value="webp">WEBP</option>
+              </select>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+
+          <!-- Toggle for Auto-Download -->
+          <div class="toggle-container">
+            <label class="switch">
+              <input type="checkbox" id="autoDownloadToggle">
+              <span class="slider round"></span>
+            </label>
+            <span class="toggle-label">Download Automatically</span>
+          </div>
+        </div>
+
+        <!-- Buttons with Icons and Animations -->
+        <div class="buttons">
+          <button id="captureBtn" class="btn-primary">
+            <i class="fas fa-camera"></i> Capture Screenshots
+          </button>
+          <button id="resetBtn" class="btn-secondary">
+            <i class="fas fa-sync-alt"></i> Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Loading Message -->
+      <div id="loading" style="display: none;">Capturing screenshots... Please wait.</div>
+
+      <!-- Download Links -->
+      <div id="downloadLinks" style="display: none;">
+        <h3>Download Screenshots:</h3>
+        <div class="download-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>Features</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <i class="fas fa-desktop"></i>
+        <h3>Full-Page Capture</h3>
+        <p>Capture entire web pages, including hidden content.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-download"></i>
+        <h3>Auto-Download</h3>
+        <p>Automatically download screenshots in your preferred format.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-cogs"></i>
+        <h3>Customizable</h3>
+        <p>Choose between PNG, JPG, or WEBP formats for your screenshots.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">1</div>
+        <p>Paste the website URLs you want to capture.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">2</div>
+        <p>Select your preferred format and options.</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">3</div>
+        <p>Click "Capture Screenshots" and download your images.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section id="faqs" class="faqs">
+    <h2>FAQs</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What is a scrolling screenshot?</h3>
+        </div>
+        <p class="faq-answer">A scrolling screenshot captures the entire content of a webpage, including the parts that are not visible without scrolling. It’s perfect for capturing long web pages in one image.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Can I capture screenshots of dynamic content?</h3>
+        </div>
+        <p class="faq-answer">Yes, our tool can capture dynamic content, including animations, interactive elements, and dynamically loaded sections of a webpage.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Is it possible to capture screenshots of password-protected pages?</h3>
+        </div>
+        <p class="faq-answer">No, our tool cannot capture screenshots of password-protected pages or pages behind login walls. It only works with publicly accessible content.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Do I need to install any software to use this tool?</h3>
+        </div>
+        <p class="faq-answer">No, our tool is entirely browser-based and does not require any software installation. Just visit our website and start capturing screenshots instantly.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What formats are supported for saving screenshots?</h3>
+        </div>
+        <p class="faq-answer">Our tool supports multiple formats, including PNG, JPG, and WEBP. You can choose your preferred format before capturing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Section -->
+  <section id="support" class="support">
+    <h2>Support</h2>
+    <p>If you have any questions or need assistance, please <a href="mailto:support@scrollsnappro.com">contact us</a>.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ScrollSnap Pro. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Show/hide PDF options based on format selection
+    document.getElementById('format').addEventListener('change', (e) => {
+      const pdfOption = document.getElementById('pdfOption');
+      if (e.target.value === 'pdf') {
+        pdfOption.style.display = 'block';
+      } else {
+        pdfOption.style.display = 'none';
+      }
+    });
+
+    // Capture Screenshots
+    document.getElementById('captureBtn').addEventListener('click', async () => {
+      const links = document.getElementById('links').value.split('\n').filter(link => link.trim() !== '');
+      const format = document.getElementById('format').value;
+      const autoDownload = document.getElementById('autoDownloadToggle').checked;
+
+      if (links.length === 0) {
+        alert('Please enter at least one valid link.');
+        return;
+      }
+
+      // Show loading message
+      document.getElementById('loading').style.display = 'block';
+
+      try {
+        const response = await fetch('/capture', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ links, format }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const downloadLinksDiv = document.querySelector('.download-list');
+
+          // Clear previous download links
+          downloadLinksDiv.innerHTML = '';
+
+          data.downloadUrls.forEach((item) => {
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.download = item.filename;
+            link.textContent = `Download ${item.filename}`;
+            link.className = 'download-link';
+            downloadLinksDiv.appendChild(link);
+
+            // Automatically download if toggle is enabled
+            if (autoDownload) {
+              link.click();
+            }
+          });
+
+          // Show download links only if auto-download is disabled
+          if (!autoDownload) {
+            document.getElementById('downloadLinks').style.display = 'block';
+          }
+        } else {
+          alert('Failed to capture screenshots.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while capturing screenshots.');
+      } finally {
+        // Hide loading message
+        document.getElementById('loading').style.display = 'none';
+      }
+    });
+
+    // Reset Form
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      document.getElementById('links').value = ''; // Clear the textarea
+      document.getElementById('format').value = 'png'; // Reset format to PNG
+      document.getElementById('autoDownloadToggle').checked = false; // Uncheck the toggle
+      document.getElementById('downloadLinks').style.display = 'none'; // Hide download links
+    });
+
+    // FAQ toggle functionality
+    document.querySelectorAll('.faq-question').forEach((question) => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
